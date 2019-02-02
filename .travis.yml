@@ -54,8 +54,9 @@ before_script:
 - if [ $ANDROID_TAG == "google_apis" ]; then echo yes | sdkmanager "add-ons;addon-google_apis-google-$API"; fi
 - echo yes | sdkmanager "system-images;android-$API;$ANDROID_TAG;$ANDROID_ABI"
 - avdmanager list
-- echo no | android create avd -f -n test -t "system-images;android-$API;$ANDROID_TAG;$ANDROID_ABI"
-- emulator -avd test -no-audio -no-window &
+- echo avdmanager create avd -f -n test-api$API -k "system-images;android-$API;$ANDROID_TAG;$ANDROID_ABI" -c 200M
+- echo no | avdmanager create avd -f -n test-api$API -k "system-images;android-$API;$ANDROID_TAG;$ANDROID_ABI" -c 200M
+- $ANDROID_HOME/emulator/emulator -memory 1536 -avd test-api$API -no-window -no-audio&
 - android-wait-for-emulator
 - adb devices
 - adb shell input keyevent 82 &
