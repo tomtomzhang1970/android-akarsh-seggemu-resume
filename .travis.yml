@@ -42,8 +42,6 @@ cache:
 
 env:
   matrix:
-    - API=16 ANDROID_ABI=armeabi-v7a ANDROID_TAG=default
-    - API=17 ANDROID_ABI=armeabi-v7a ANDROID_TAG=default
     - API=19 ANDROID_ABI=armeabi-v7a ANDROID_TAG=default
     - API=21 ANDROID_ABI=armeabi-v7a ANDROID_TAG=default
     - API=22 ANDROID_ABI=armeabi-v7a ANDROID_TAG=default
